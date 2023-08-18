@@ -59,22 +59,22 @@ def dqn(n_episodes=2000, max_t=100000, eps_start=1.0, eps_end=0.01, eps_decay=0.
     return scores
 ```
 #### Selected Hyperparameters
-EPS_DECAY: 0.995
-BUFFER_SIZE: 1e5
-BATCH_SIZE: 64
-GAMMA: 0.99
-TAU: 1e-3
-LR: 5e-5
-UPDATE_EVERY: 4
+- EPS_DECAY: 0.995
+- BUFFER_SIZE: 1e5
+- BATCH_SIZE: 64
+- GAMMA: 0.99
+- TAU: 1e-3
+- LR: 5e-5
+- UPDATE_EVERY: 4
 
 #### Additional Updates
-For our implementation of DQN we also added an experience replay buffer. This allows to buffer experiences and sample them out of sequence. This can help us learn multiple times from experiences. For example, during early training we may not experience reaching the target often. With the buffer we can replay that experience mutliple times to converge to a better solution faster.
+For our implementation of DQN we also added an experience replay buffer. This allows to buffer experiences and sample them out of sequence. This can help us learn multiple times from experiences. For example, during early training we may not experience reaching the target often. With the buffer we can replay that experience multiple times to converge to a better solution faster.
 
 We also use Fixed Q values. The issue this solves is the dependency of our temporal difference target on the weights of a network that we are trying to learn. The dependency makes our TD target move around during training. Fixed Q values uses a fixed network during the learning step.
 
 
 #### Model
-DQN uses a Q function to approximate the quality of a particular action for a given state. We model the Q function using a neural network. The network is composed of three Linear layers with an input diemension of 37, 128 first hidden layer, 64 second hidden layer and output diemension of 4. The activation function RELU was used for each layer. We used the Adam optimizer to train the network.
+DQN uses a Q function to approximate the quality of a particular action for a given state. We model the Q function using a neural network. The network is composed of three Linear layers with an input dimension of 37, 128 first hidden layer, 64 second hidden layer and output dimension of 4. The activation function RELU was used for each layer. We used the Adam optimizer to train the network.
 
 
 #### Results
@@ -85,11 +85,11 @@ After 9802 episodes we reach an average score of 17.77.
 
 At episode 880 the network has reached an average score of over 15.03 for the last 100 episodes and thereby indicating a stable solution.
 
-![Training Score Graph](agent_dqn_learn.png)
+<img src="agent_dqn_learn.png" width="400" height="300">
 
 ### Future Work
 Additional updates to the DQN implementation include Double DQN, Prioritized experience replay and Dueling DQN. 
 
-Double DQN is a method that attempts to avoid the overesitmation problem by having two function approximators to avoid overestimation that may come by chance with only a single network.
+Double DQN is a method that attempts to avoid the overestimation problem by having two function approximators to avoid overestimation that may come by chance with only a single network.
 Prioritized Experience Replay is a nonuniform sampling method to identify samples that that can have larger learning characterized by a TD error of the sample.
 Dueling DQNs uses estimates of both a state value function and advantage function for each action to obtain a Q value.
