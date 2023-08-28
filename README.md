@@ -16,9 +16,11 @@
 
     (_For AWS_) If you'd like to train the agent on AWS (and have not [enabled a virtual screen](https://github.com/Unity-Technologies/ml-agents/blob/master/docs/Training-on-Amazon-Web-Service.md)), then please use [this link](https://s3-us-west-1.amazonaws.com/udacity-drlnd/P1/Banana/Banana_Linux_NoVis.zip) to obtain the environment.
 
-2. Place the file in the course GitHub repository, in the `p1_navigation/` folder, and unzip (or decompress) the file. 
+2. Place the file in the your current working directory and unzip.
 
-3. Use BananaCollectorDQN.ipynb to run DQN training
+3. Install requirements with `pip install -r requirements.txt` 
+
+4. Use `BananaCollectorDQN.ipynb` to run DQN training
 
 
 
@@ -37,9 +39,4 @@ The state space has 37 dimensions and contains the agent's velocity, along with 
 - **`3`** - turn right.
 
 The task is episodic, and in order to solve the environment, your agent must get an average score of +13 over 100 consecutive episodes.
-
-## Procedure
-
-No additional installs are needed to run the environment. The project can be replicated through BananaCollectorDQN.ipynb.
-We use DQN and 3 layer neural network to solve this environment.
 
